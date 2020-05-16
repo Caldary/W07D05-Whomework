@@ -1,28 +1,37 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div>
+  <li v-for="(question, index) in questions" :question="question" :key="index">{{question.question}}</li>
+  <question-list :questions="questions"></question-list>
+</div>
 </template>
 
+
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import { eventBus } from './main.js'
+import QuestionList from "./components/QuestionList.vue"
+import ListQuestion from "./components/ListQuestion"
 
 export default {
-  name: 'App',
+  name: 'app',
+  data(){
+    return{
+      questions: []
+    }
+  },
+  mounted() {
+    fetch('https://opentdb.com/api.php?amount=10')
+    .then(res => res.json())
+    .then(questions => this.questions = questions.results)
+  },
   components: {
-    HelloWorld
+    "question-list": QuestionList,
+    "list-question": ListQuestion
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <li v-for="(question, index) in questions" :question="question" :key="index">{{question.question}}</li>
+  <li v-for="(question, index) in questions" :question="question" :key="index">{{question.question}}{{question.incorrect_answers}}{{question.correct_answer}}</li>
   <question-list :questions="questions"></question-list>
 </div>
 </template>
@@ -11,13 +11,15 @@
 
 import { eventBus } from './main.js'
 import QuestionList from "./components/QuestionList.vue"
-import ListQuestion from "./components/ListQuestion"
+import AnswerList from "./components/AnswersList.vue"
+
 
 export default {
   name: 'app',
   data(){
     return{
-      questions: []
+      questions: [],
+      answers: []
     }
   },
   mounted() {
@@ -27,7 +29,7 @@ export default {
   },
   components: {
     "question-list": QuestionList,
-    "list-question": ListQuestion
+    "answer-list": AnswerList
   }
 }
 </script>

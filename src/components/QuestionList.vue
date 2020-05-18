@@ -7,15 +7,12 @@
 </template>
 
 <script>
-import ListQuestion from './ListQuestion.vue';
 import { eventBus } from '../main.js'
 
 export default {
     name: 'question_list',
-    props: ['questions'],
-    components: {
-        "list-question": ListQuestion
-    }
+    props: ['questions']
+  
 }
 </script>
 

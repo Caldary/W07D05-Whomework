@@ -12,6 +12,7 @@
 import { eventBus } from './main.js'
 import QuestionList from "./components/QuestionList.vue"
 import AnswerList from "./components/AnswersList.vue"
+import AnswerSelect from "./components/AnswerSelect.vue"
 
 
 export default {

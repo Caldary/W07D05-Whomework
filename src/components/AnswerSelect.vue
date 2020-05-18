@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { eventBus } form '../main.js';
+import { eventBus } from '../main.js';
 
 export default {
     name: "select-answer",

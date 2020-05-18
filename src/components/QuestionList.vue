@@ -10,7 +10,7 @@
 import { eventBus } from '../main.js'
 
 export default {
-    name: 'question_list',
+    name: 'question-list',
     props: ['questions']
   
 }
